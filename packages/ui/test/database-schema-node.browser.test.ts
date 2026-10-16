@@ -77,12 +77,14 @@ describe('databaseSchemaNode', () => {
     expect(bounds.target?.map((h) => h.id)).toEqual(['id', 'user_id', 'total']);
     expect(bounds.source?.every((h) => h.position === 'right')).toBe(true);
     expect(bounds.target?.every((h) => h.position === 'left')).toBe(true);
-    // each pair sits at the height of its row
+    // each pair sits at the height of its row (within a pixel: WebKit snaps the handle to whole pixels)
     const row = nodeEl(flow, 'orders').querySelectorAll('tr')[1]!.getBoundingClientRect();
     const handle = nodeEl(flow, 'orders')
       .querySelector('xy-handle[handle-id="user_id"]')!
       .getBoundingClientRect();
-    expect(handle.top + handle.height / 2).toBeCloseTo(row.top + row.height / 2, 0);
+    expect(
+      Math.abs(handle.top + handle.height / 2 - (row.top + row.height / 2)),
+    ).toBeLessThanOrEqual(1);
   });
 
   it('connects column to column and draws cardinality labels', async () => {
