@@ -265,7 +265,9 @@ export const uiStyles = css`
     white-space: nowrap;
   }
   .xy-ui-schema__cell--start {
-    width: 1%;
+    /* as narrow as its content: a fixed width gets no extra space. Not a percentage (the old
+       \`1%\` trick): WebKit sizes a max-content table from it as content / 1 %, 100 times too wide */
+    width: 0;
     padding-left: 14px;
     padding-right: 4px;
   }
