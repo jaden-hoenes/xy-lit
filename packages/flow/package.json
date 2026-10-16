@@ -1,6 +1,6 @@
 {
   "name": "@xy-lit/flow",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Lit web components for node-based editors and diagrams: a port of React Flow on @xyflow/system. Use from plain HTML or any framework.",
   "keywords": [
     "web-components",

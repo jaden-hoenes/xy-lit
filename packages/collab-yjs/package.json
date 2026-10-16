@@ -1,6 +1,6 @@
 {
   "name": "@xy-lit/collab-yjs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Real-time collaboration for XY Lit flows with Yjs: shared nodes and edges, live drags, per-user undo, cursors and self-healing documents.",
   "keywords": [
     "yjs",
