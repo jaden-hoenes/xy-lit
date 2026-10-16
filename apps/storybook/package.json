@@ -1,0 +1,33 @@
+{
+  "name": "@xy-lit/storybook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "manifest": "tsx scripts/manifest.ts",
+    "predev": "pnpm manifest",
+    "dev": "tsx scripts/dev.ts",
+    "prebuild": "pnpm manifest",
+    "build": "storybook build -o dist",
+    "test": "playwright test -c playwright.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@xy-lit/store": "workspace:*",
+    "@xy-lit/flow": "workspace:*",
+    "@xy-lit/collab-yjs": "workspace:*",
+    "@xy-lit/pro": "workspace:*",
+    "@xy-lit/ui": "workspace:*",
+    "lit": "^3.3.3",
+    "yjs": "^13.6.33",
+    "y-protocols": "^1.0.7"
+  },
+  "devDependencies": {
+    "storybook": "^10.6.2",
+    "@storybook/web-components-vite": "^10.6.2",
+    "@storybook/web-components": "^10.6.2",
+    "@storybook/addon-docs": "^10.6.2",
+    "@storybook/addon-a11y": "^10.6.2",
+    "@fontsource-variable/inter": "^5.3.0"
+  }
+}

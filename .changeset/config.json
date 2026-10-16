@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "jaden-hoenes/xy-lit" }],
+  "commit": false,
+  "fixed": [],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": [
+    "@xy-lit/examples",
+    "@xy-lit/storybook",
+    "@xy-lit/docs",
+    "@xy-lit/collab-server",
+    "@xy-lit/e2e",
+    "@xy-lit/perf"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "name": "@xy-lit/collab-yjs",
+  "version": "0.0.0",
+  "description": "Real-time collaboration for XY Lit flows with Yjs: shared nodes and edges, live drags, per-user undo, cursors and self-healing documents.",
+  "keywords": [
+    "yjs",
+    "collaboration",
+    "crdt",
+    "real-time",
+    "web-components",
+    "lit",
+    "flow",
+    "node-editor",
+    "diagram",
+    "xy-lit"
+  ],
+  "author": "Jaden Hoenes",
+  "license": "MIT",
+  "homepage": "https://jaden-hoenes.github.io/xy-lit/guide/collaboration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaden-hoenes/xy-lit.git",
+    "directory": "packages/collab-yjs"
+  },
+  "bugs": {
+    "url": "https://github.com/jaden-hoenes/xy-lit/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    },
+    "./define.js": {
+      "types": "./dist/define.d.ts",
+      "import": "./dist/define.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.d.ts.map",
+    "custom-elements.json",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "sideEffects": [
+    "./dist/define.js"
+  ],
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "fuzz": "vitest run --root ../.. --project collab-fuzz",
+    "manifest": "cem analyze --litelement --globs 'src/**/*.ts' --outdir . --config ../../config/cem.mjs",
+    "prepack": "node ../../scripts/copy-notices.mjs && pnpm manifest"
+  },
+  "dependencies": {
+    "@xy-lit/store": "workspace:*",
+    "@xy-lit/flow": "workspace:*",
+    "lit": "^3.3.3",
+    "@lit/context": "^1.1.6",
+    "fractional-indexing": "^4.0.0",
+    "perfect-cursors": "^1.0.5"
+  },
+  "peerDependencies": {
+    "yjs": "^13.6.33",
+    "y-protocols": "^1.0.7"
+  },
+  "devDependencies": {
+    "yjs": "^13.6.33",
+    "y-protocols": "^1.0.7",
+    "lib0": "^0.2.119",
+    "fast-check": "^4.10.2",
+    "@custom-elements-manifest/analyzer": "^0.11.0"
+  },
+  "customElements": "custom-elements.json",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

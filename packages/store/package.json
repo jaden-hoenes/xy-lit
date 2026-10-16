@@ -1,0 +1,60 @@
+{
+  "name": "@xy-lit/store",
+  "version": "0.0.0",
+  "description": "Framework-free state container for XY Lit flows: change pipeline, data sources and instance API on @xyflow/system. Runs in Node and the browser.",
+  "keywords": [
+    "state-management",
+    "store",
+    "flow",
+    "graph",
+    "node-editor",
+    "xyflow",
+    "react-flow",
+    "typescript",
+    "xy-lit"
+  ],
+  "author": "Jaden Hoenes",
+  "license": "MIT",
+  "homepage": "https://jaden-hoenes.github.io/xy-lit/guide/concepts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaden-hoenes/xy-lit.git",
+    "directory": "packages/store"
+  },
+  "bugs": {
+    "url": "https://github.com/jaden-hoenes/xy-lit/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "import": "./dist/internal.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.d.ts.map",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "prepack": "node ../../scripts/copy-notices.mjs"
+  },
+  "dependencies": {
+    "@xyflow/system": "0.0.83",
+    "rbush": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/rbush": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

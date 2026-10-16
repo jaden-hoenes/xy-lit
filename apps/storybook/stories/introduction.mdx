@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# XY Lit
+
+XY Lit is [React Flow](https://reactflow.dev) as web components: `<xy-flow>` and friends, written with Lit, running on the
+`@xyflow/system` engine, usable from plain HTML or any framework. This Storybook is the live reference for every part.
+
+## Where to look
+
+| Section                | What is in it                                                                                              |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Flow / Basics**      | A first flow, fitting the view, controlled and uncontrolled state, read-only, dark mode, light render root |
+| **Flow / Interaction** | Selection, panning, snapping, keyboard use, click to connect, connection validation                        |
+| **Flow / Sub-flows**   | Parent extent, expanding parents, nested groups                                                            |
+| **Flow / Edges**       | Edge types, markers, labels, parallel edges, animation, reconnecting, toolbars, button edges               |
+| **Flow / Nodes**       | Built-in nodes, template and element nodes, drag handles, resizer, toolbar, wheel handling                 |
+| **Flow / Lifecycle**   | `render-complete`, the loading overlay, entrance motion                                                    |
+| **Plugins**            | Background, controls, minimap, panels, viewport portal                                                     |
+| **Collaboration**      | Two Yjs documents side by side with a latency slider, and the repair of concurrent edits                   |
+| **Pro**                | Undo and redo, clipboard, helper lines, auto layout, animated positions, expand and collapse, grouping     |
+| **UI**                 | One story per `@xy-lit/ui` component                                                                       |
+
+## Using this Storybook
+
+- The **colour mode** switch in the toolbar sets `color-mode` on every flow and the canvas background.
+- The **Controls** panel changes the attributes a story exposes; **Actions** logs the events a story is about
+  (`nodes-change`, `connect`, `render-complete` ...).
+- **Docs** pages list every attribute, property, event, slot and CSS part of the element, generated from the
+  Custom Elements Manifest.
+- Every story is a small, self-contained example: use _Show code_ to copy it.

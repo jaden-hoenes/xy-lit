@@ -1,0 +1,17 @@
+node_modules
+dist
+.vendor
+pnpm-lock.yaml
+test-results
+playwright-report
+storybook-static
+.vitepress/cache
+.vitepress/dist
+custom-elements.json
+packages/flow/src/styles/vendor
+packages/flow/src/styles/generated
+tests/e2e/conformance
+apps/examples/src/generic-tests
+spec
+THIRD_PARTY_NOTICES.md
+README.md

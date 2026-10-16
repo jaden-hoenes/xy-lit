@@ -1,0 +1,16 @@
+{
+  "name": "@xy-lit/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node run.mjs",
+    "test:collab": "XY_COLLAB=1 node run.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@axe-core/playwright": "^4.13.0",
+    "yjs": "^13.6.33"
+  }
+}

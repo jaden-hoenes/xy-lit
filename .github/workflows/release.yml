@@ -1,0 +1,50 @@
+# Releases with changesets. On every push to main:
+#   - while changesets are pending, opens (or updates) the "Version packages" pull request;
+#   - when there are none (that pull request was merged), publishes the packages whose version is
+#     not on npm yet, with provenance, and creates the git tags and GitHub releases.
+# Needs the repository secret NPM_TOKEN (an npm automation token with publish rights to @xy-lit).
+# Pull requests opened with GITHUB_TOKEN do not trigger other workflows, so close and reopen the
+# "Version packages" pull request to run CI on it.
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write # tags, the version branch and GitHub releases
+  pull-requests: write # the "Version packages" pull request
+  id-token: write # npm provenance
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4 # the version comes from "packageManager" in package.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - run: pnpm install --frozen-lockfile
+
+      - uses: changesets/action@v1
+        with:
+          version: pnpm version-packages
+          publish: pnpm release
+          commit: 'Version packages'
+          title: 'Version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: 'true'

@@ -1,0 +1,26 @@
+{
+  "extends": ["../../tsconfig.base.json", "../../tsconfig.paths.json"],
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["vite/client"],
+    "baseUrl": "../..",
+    // `paths` replaces the inherited map, so it is repeated here with one addition: y-protocols is a
+    // peer dependency of collab-yjs that the docs app does not depend on itself (see .vitepress/config.ts)
+    "paths": {
+      "@xy-lit/store/internal": ["./packages/store/src/internal.ts"],
+      "@xy-lit/store": ["./packages/store/src/index.ts"],
+      "@xy-lit/flow/define.js": ["./packages/flow/src/define.ts"],
+      "@xy-lit/flow": ["./packages/flow/src/index.ts"],
+      "@xy-lit/collab-yjs/server": ["./packages/collab-yjs/src/server.ts"],
+      "@xy-lit/collab-yjs/define.js": ["./packages/collab-yjs/src/define.ts"],
+      "@xy-lit/collab-yjs": ["./packages/collab-yjs/src/index.ts"],
+      "@xy-lit/pro/define.js": ["./packages/pro/src/define.ts"],
+      "@xy-lit/pro": ["./packages/pro/src/index.ts"],
+      "@xy-lit/ui/define.js": ["./packages/ui/src/define.ts"],
+      "@xy-lit/ui": ["./packages/ui/src/index.ts"],
+      "y-protocols/*": ["./packages/collab-yjs/node_modules/y-protocols/*"]
+    }
+  },
+  // the theme (Vue single-file components) is checked by vue-tsc in editors only: `vue` is not a dependency of this app
+  "include": [".vitepress/config.ts", "demos"]
+}

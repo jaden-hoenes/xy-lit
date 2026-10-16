@@ -1,0 +1,54 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please check the [documentation](https://jaden-hoenes.github.io/xy-lit/) and the open issues first.
+        For security problems use the private reporting link on the issue chooser instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: A minimal example is the best report: a StackBlitz or CodeSandbox link, a repository, or an HTML snippet.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "@xy-lit/flow version"
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: other-packages
+    attributes:
+      label: Other @xy-lit packages and versions in use
+      placeholder: "@xy-lit/pro 0.1.0, @xy-lit/collab-yjs 0.1.0"
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browsers where it happens
+      multiple: true
+      options:
+        - Chrome / Chromium
+        - Firefox
+        - Safari / WebKit
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, bundler, and framework if you use one.
+      placeholder: macOS 15, Vite 8, React 19
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console output or screenshots
+      render: shell

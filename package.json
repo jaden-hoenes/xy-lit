@@ -1,0 +1,60 @@
+{
+  "name": "xy-lit",
+  "private": true,
+  "description": "XY Lit: node-based UIs as web components. A Lit port of React Flow on @xyflow/system, with Yjs collaboration.",
+  "author": "Jaden Hoenes",
+  "license": "MIT",
+  "homepage": "https://jaden-hoenes.github.io/xy-lit/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaden-hoenes/xy-lit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaden-hoenes/xy-lit/issues"
+  },
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "vendor": "bash scripts/vendor-xyflow.sh",
+    "build": "pnpm -r --filter './packages/*' build",
+    "dev": "pnpm --filter @xy-lit/examples dev",
+    "dev:docs": "pnpm --filter @xy-lit/docs dev",
+    "dev:storybook": "pnpm --filter @xy-lit/storybook dev",
+    "dev:collab": "pnpm --filter @xy-lit/collab-server dev",
+    "build:apps": "pnpm -r --filter './apps/*' build",
+    "test": "XY_TEST_SERVER=1 vitest run --project store --project collab --project browser",
+    "test:watch": "vitest",
+    "e2e": "pnpm --filter @xy-lit/e2e test",
+    "e2e:collab": "pnpm --filter @xy-lit/e2e test:collab",
+    "fuzz": "pnpm --filter @xy-lit/collab-yjs fuzz",
+    "perf": "pnpm --filter @xy-lit/perf test",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r typecheck",
+    "format": "prettier --write .",
+    "manifest": "pnpm -r --filter './packages/*' manifest",
+    "changeset": "changeset",
+    "check:packages": "node scripts/check-packages.mjs",
+    "version-packages": "changeset version",
+    "release": "pnpm build && pnpm manifest && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "1.64.1",
+    "@types/node": "^26.6.5",
+    "@vitest/browser-playwright": "^5.0.4",
+    "eslint": "^10.12.0",
+    "eslint-plugin-lit": "^2.3.1",
+    "eslint-plugin-wc": "^3.1.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
+  }
+}

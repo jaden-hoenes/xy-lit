@@ -1,0 +1,45 @@
+diff --git a/tests/e2e/conformance/constants.ts b/tests/e2e/conformance/constants.ts
+index b1ce66b..a316f2c 100644
+--- a/tests/e2e/conformance/constants.ts
++++ b/tests/e2e/conformance/constants.ts
+@@ -1 +1,2 @@
+-export const FRAMEWORK = process.env.FRAMEWORK;
++// XY Lit: FRAMEWORK defaults to 'lit' (tests/e2e/conformance/PATCHES.md, patch 1).
++export const FRAMEWORK = process.env.FRAMEWORK ?? 'lit';
+diff --git a/tests/e2e/conformance/nodes.spec.ts b/tests/e2e/conformance/nodes.spec.ts
+index 89c3adf..d121f3e 100644
+--- a/tests/e2e/conformance/nodes.spec.ts
++++ b/tests/e2e/conformance/nodes.spec.ts
+@@ -18,10 +18,13 @@ test.describe('Nodes', () => {
+     });
+ 
+     test('selecting multiple nodes with shift drag', async ({ page }) => {
++      // XY Lit: patch 2 (PATCHES.md): XY Lit uses React's selection DOM, not Svelte's.
+       let nodeSelection = page.locator(
+-        FRAMEWORK === 'react' ? '.react-flow__nodesselection' : '.svelte-flow__selection'
++        FRAMEWORK === 'svelte' ? '.svelte-flow__selection' : `.${FRAMEWORK}-flow__nodesselection`
++      );
++      let selection = page.locator(
++        FRAMEWORK === 'svelte' ? '.svelte-flow__selection' : `.${FRAMEWORK}-flow__selection`
+       );
+-      let selection = page.locator(FRAMEWORK === 'react' ? '.react-flow__selection' : '.svelte-flow__selection');
+ 
+       const nodes = page.locator(`.${FRAMEWORK}-flow__node`);
+ 
+@@ -47,11 +50,12 @@ test.describe('Nodes', () => {
+     });
+ 
+     test('panning from a multi-selection rectangle with the middle mouse button', async ({ page }) => {
+-      test.skip(FRAMEWORK !== 'react', 'The React selection rectangle has its own drag handler');
++      // XY Lit: patch 3 (PATCHES.md): runs for every binding except Svelte.
++      test.skip(FRAMEWORK === 'svelte', 'The React selection rectangle has its own drag handler');
+ 
+-      const nodes = page.locator('.react-flow__node');
+-      const selection = page.locator('.react-flow__nodesselection-rect');
+-      const viewport = page.locator('.react-flow__viewport');
++      const nodes = page.locator(`.${FRAMEWORK}-flow__node`);
++      const selection = page.locator(`.${FRAMEWORK}-flow__nodesselection-rect`);
++      const viewport = page.locator(`.${FRAMEWORK}-flow__viewport`);
+ 
+       await expect(nodes.first()).toHaveCSS('visibility', 'visible');
+       const nodeBox = await nodes.first().boundingBox();

@@ -1,0 +1,21 @@
+{
+  "name": "@xy-lit/collab-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@xy-lit/collab-yjs": "workspace:*",
+    "@hocuspocus/server": "^4.7.1",
+    "@hocuspocus/extension-sqlite": "^4.7.1",
+    "@hocuspocus/extension-logger": "^4.7.1",
+    "yjs": "^13.6.33"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
+}

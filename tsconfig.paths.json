@@ -1,0 +1,21 @@
+{
+  // Typecheck/IDE only: resolve sibling workspace packages from source so `pnpm typecheck` needs
+  // no prior build. Builds resolve through node_modules and each package's `dist`.
+  // Keep in sync with config/aliases.ts.
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "@xy-lit/store/internal": ["./packages/store/src/internal.ts"],
+      "@xy-lit/store": ["./packages/store/src/index.ts"],
+      "@xy-lit/flow/define.js": ["./packages/flow/src/define.ts"],
+      "@xy-lit/flow": ["./packages/flow/src/index.ts"],
+      "@xy-lit/collab-yjs/server": ["./packages/collab-yjs/src/server.ts"],
+      "@xy-lit/collab-yjs/define.js": ["./packages/collab-yjs/src/define.ts"],
+      "@xy-lit/collab-yjs": ["./packages/collab-yjs/src/index.ts"],
+      "@xy-lit/pro/define.js": ["./packages/pro/src/define.ts"],
+      "@xy-lit/pro": ["./packages/pro/src/index.ts"],
+      "@xy-lit/ui/define.js": ["./packages/ui/src/define.ts"],
+      "@xy-lit/ui": ["./packages/ui/src/index.ts"]
+    }
+  }
+}

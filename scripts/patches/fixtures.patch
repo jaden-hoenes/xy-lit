@@ -1,0 +1,32 @@
+diff --git a/apps/examples/src/generic-tests/edges/general.ts b/apps/examples/src/generic-tests/edges/general.ts
+index cebbccd..beb7933 100644
+--- a/apps/examples/src/generic-tests/edges/general.ts
++++ b/apps/examples/src/generic-tests/edges/general.ts
+@@ -1,4 +1,4 @@
+-import { MarkerType } from '@xyflow/svelte';
++import { MarkerType } from '@xy-lit/flow';
+ 
+ export default {
+ 	flowProps: {
+diff --git a/apps/examples/src/generic-tests/node-toolbar/general.ts b/apps/examples/src/generic-tests/node-toolbar/general.ts
+index 6fce800..9f943a6 100644
+--- a/apps/examples/src/generic-tests/node-toolbar/general.ts
++++ b/apps/examples/src/generic-tests/node-toolbar/general.ts
+@@ -1,5 +1,5 @@
+-import { Position, type Node } from '@xyflow/svelte';
+-import ToolbarNode from './components/ToolbarNode.svelte';
++import { Position, type Node } from '@xy-lit/flow';
++import ToolbarNode from '../components/ToolbarNode';
+ 
+ const positions = ['top', 'right', 'bottom', 'left'];
+ const alignments = ['start', 'center', 'end'];
+diff --git a/apps/examples/src/generic-tests/nodes/general.ts b/apps/examples/src/generic-tests/nodes/general.ts
+index 874abda..d3aa69a 100644
+--- a/apps/examples/src/generic-tests/nodes/general.ts
++++ b/apps/examples/src/generic-tests/nodes/general.ts
+@@ -1,4 +1,4 @@
+-import DragHandleNode from './components/DragHandleNode.svelte';
++import DragHandleNode from '../components/DragHandleNode';
+ 
+ export default {
+ 	flowProps: {

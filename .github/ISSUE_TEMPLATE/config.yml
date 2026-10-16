@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://jaden-hoenes.github.io/xy-lit/
+    about: Guides, live demos and the API reference.
+  - name: Questions and ideas
+    url: https://github.com/jaden-hoenes/xy-lit/discussions
+    about: Ask a question or talk through an idea before opening an issue.
+  - name: Report a security vulnerability
+    url: https://github.com/jaden-hoenes/xy-lit/security/advisories/new
+    about: Report security problems privately, not in a public issue.
