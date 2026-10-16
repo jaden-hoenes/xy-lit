@@ -1,6 +1,6 @@
 {
   "name": "@xy-lit/store",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Framework-free state container for XY Lit flows: change pipeline, data sources and instance API on @xyflow/system. Runs in Node and the browser.",
   "keywords": [
     "state-management",

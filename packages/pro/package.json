@@ -1,6 +1,6 @@
 {
   "name": "@xy-lit/pro",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Editing features for XY Lit flows: undo/redo, clipboard, helper lines, auto layout, animated positions, expand/collapse and grouping.",
   "keywords": [
     "undo-redo",
